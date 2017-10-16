@@ -23,11 +23,24 @@ public class Matrix {
         this.numberLines = numberLines;
         this.numberColumns = numberColumns;
         this.array = new double[numberLines][numberColumns];
-        this.array=array;
+        this.array = array;
     }
 
+    void sumMatrixs(double[][] array1) {
+        //Добавить амперсант в цикл
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
 
-    void print(){
+                array[i][j] += array1[i][j];
+            }
+        }
+    }
 
+    void print(double[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+
+            }
+        }
     }
 }

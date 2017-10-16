@@ -23,11 +23,11 @@ public class Person {
     }
 
     void move() {
-
+        System.out.println("МЕТОД move\nЧеловек с именем " + this.fullName + " и возростом " + this.age + " идет по лесу");
     }
 
     void talk() {
-
+        System.out.println("МЕТОД talk\nЧеловек с именем " + this.fullName + " и возростом " + this.age + " идет по лесу");
     }
 
 }

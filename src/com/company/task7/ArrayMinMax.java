@@ -29,7 +29,7 @@ public class ArrayMinMax {
         for (int i = 0; i < array.length; i++) {
             int min = array[i][0];
             int max = array[i][0];
-            for (int j = 0; j < array[i].length; j++) {
+            for (int j = 1; j < array[i].length; j++) {
                 if (min > array[i][j]) {
                     min = array[i][j];
                 }

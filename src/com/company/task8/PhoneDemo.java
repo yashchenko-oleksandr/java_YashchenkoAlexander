@@ -30,5 +30,7 @@ public class PhoneDemo {
         System.out.println(phone5.number);
         System.out.println(phone5.model);
         System.out.println(phone5.weight);
+
+        phone5.receiveCall("Вася", "+380995555555");
     }
 }

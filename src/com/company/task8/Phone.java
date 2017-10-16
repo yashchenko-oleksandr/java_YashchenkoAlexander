@@ -36,4 +36,8 @@ public class Phone {
         this.model = model;
         this.weight = weight;
     }
+
+    void receiveCall(String name, String  numver){
+        System.out.println("Звонит "+name+"\nНомер телефона - "+numver);
+    }
 }

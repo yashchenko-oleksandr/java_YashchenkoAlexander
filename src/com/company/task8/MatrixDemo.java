@@ -1,10 +1,17 @@
 package com.company.task8;
 
-/**
- * Created by Ukrainian IT_SCHOOL on 16.10.2017.
- */
 public class MatrixDemo {
     public static void main(String[] args) {
+        Matrix matrix1 = new Matrix(2, 2, new double[][]{{2, 3}, {2, 3}});
 
+        Matrix matrix2 = new Matrix(2, 2, new double[][]{{1, 3}, {3, 9}});
+
+        System.out.println("Сумма двух матриц:");
+        matrix1.sumMatrixs(matrix2.array);
+        System.out.println("Матрица умноженная на число");
+        int number = 4;
+        matrix2.multiplicationNumberOnMatrixs(number);
+        System.out.println("Умножение матрицы на матрицу:");
+        matrix1.multiplicationMatrixsOnMatrixs(matrix2.array);
     }
 }

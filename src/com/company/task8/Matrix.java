@@ -45,15 +45,15 @@ public class Matrix {
     }
 
     void multiplicationMatrixsOnMatrixs(double[][] array1) {
-        double[][] res = new double[this.numberLines][this.numberColumns];
+        double[][] result = new double[this.numberLines][this.numberColumns];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array1[0].length; j++) {
                 for (int n = 0; n < array1.length; n++) {
-                    res[i][j] += this.array[i][n] * array1[n][j];
+                    result[i][j] += this.array[i][n] * array1[n][j];
                 }
             }
         }
-        print(res);
+        print(result);
     }
 
     public void print(double[][] array) {

@@ -11,7 +11,7 @@ package com.company.task9;
 public class Phone {
     private String number, model;
     private int weight;
-    static int count=0;
+    static int count = 0;
 
     Phone() {
         number = "+380932376456";

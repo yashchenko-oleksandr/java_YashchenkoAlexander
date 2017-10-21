@@ -5,14 +5,18 @@ public class MatrixDemo {
         Matrix matrix1 = new Matrix(2, 2, new double[][]{{2, 3}, {2, 3}});
 
         Matrix matrix2 = new Matrix(2, 2, new double[][]{{1, 3}, {3, 9}});
-        matrix1.array = new double[][] {};
+        Matrix result = new Matrix(2,2);
 
         System.out.println("Сумма двух матриц:");
-        matrix1.sumMatrixs(matrix2.array);
+        result = matrix1.sumMatrixs(matrix2);
+        result.print();
         System.out.println("Матрица умноженная на число");
         int number = 4;
-        matrix2.multiplicationNumberOnMatrixs(number);
+        result = matrix2.multiplication(number);
+        result.print();
         System.out.println("Умножение матрицы на матрицу:");
-        matrix1.multiplicationMatrixsOnMatrixs(matrix2.array);
+        result = matrix1.multiplication(matrix2);
+        result.print();
+
     }
 }

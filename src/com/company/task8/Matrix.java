@@ -19,44 +19,54 @@ public class Matrix {
         array = new double[numberLines][numberColumns];
     }
 
+
     public Matrix(int numberLines, int numberColumns, double[][] array) {
         this.numberLines = numberLines;
         this.numberColumns = numberColumns;
-        this.array = new double[numberLines][numberColumns];
         this.array = array;
     }
 
-    void sumMatrixs(double[][] array1) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                this.array[i][j] += array1[i][j];
-            }
-        }
-        print(array);
+    public Matrix(int numberLines, int numberColumns) {
+        this.numberLines = numberLines;
+        this.numberColumns = numberColumns;
+        this.array = new double[this.numberLines][this.numberColumns];
     }
 
-    void multiplicationNumberOnMatrixs(int number) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                this.array[i][j] *= number;
+    Matrix sumMatrixs(Matrix matrix) {
+        Matrix result = new Matrix(this.numberLines, this.numberColumns);
+        for (int i = 0; i < this.array.length && i < matrix.array.length; i++) {
+            for (int j = 0; j < this.array[0].length && j < matrix.array[i].length; j++) {
+                result.array[i][j] = this.array[i][j] + matrix.array[i][j];
             }
         }
-        print(array);
+        return result;
     }
 
-    void multiplicationMatrixsOnMatrixs(double[][] array1) {
-        double[][] result = new double[this.numberLines][this.numberColumns];
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array1[0].length; j++) {
-                for (int n = 0; n < array1.length; n++) {
-                    result[i][j] += this.array[i][n] * array1[n][j];
+    Matrix multiplication(int number) {
+        Matrix matrix = new Matrix(this.numberLines, this.numberColumns);
+        for (int i = 0; i < matrix.array.length; i++) {
+            for (int j = 0; j < matrix.array[i].length; j++) {
+                matrix.array[i][j] = number * this.array[i][j];
+            }
+        }
+        return matrix;
+    }
+
+    Matrix multiplication(Matrix matrix) {
+        Matrix result = new Matrix(this.numberLines, matrix.numberColumns);
+        if (this.numberColumns == matrix.numberLines) {
+            for (int i = 0; i < this.array.length; i++) {
+                for (int j = 0; j < matrix.array[0].length; j++) {
+                    for (int n = 0; n < matrix.array.length; n++) {
+                        result.array[i][j] += (this.array[i][n] * matrix.array[n][j]);
+                    }
                 }
             }
         }
-        print(result);
+        return result;
     }
 
-    public void print(double[][] array) {
+    public void print() {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 System.out.print(array[i][j] + " ");

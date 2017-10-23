@@ -29,4 +29,9 @@ public class Aspirant extends Student {
                 "scienceWork='" + scienceWork + '\'' +
                 '}';
     }
+
+    public void getScholarship(){
+        System.out.println(this);
+        System.out.println("Аспирант имеет стипендию 400");
+    }
 }

@@ -50,4 +50,8 @@ public class Student {
                 ", group='" + group + '\'' +
                 '}';
     }
+    public void getScholarship(){
+        System.out.println(this);
+        System.out.println("Студент имеет стипендию 300");
+    }
 }

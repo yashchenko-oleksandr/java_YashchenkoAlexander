@@ -51,6 +51,6 @@ public class Rectangle extends Shape {
     }
 
     public void draw() {
-        System.out.println("Рисую прямоугольник с цветом " + getColour() + ", Координатами " + x1 + "-" + y1 + " " + x2 + "-" + y2);
+        System.out.println("Рисую прямоугольник с цветом " + getColour() + ", с координатами: нижний левый " + x1 + ":" + y1 + " верхний правый " + x2 + ":" + y2);
     }
 }

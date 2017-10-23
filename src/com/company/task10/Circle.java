@@ -31,6 +31,6 @@ public class Circle extends Shape {
     }
 
     public void draw() {
-        System.out.println("Рисую крус с цветом " + getColour() + ", Координатами " + x + "-" + y);
+        System.out.println("Рисую крус с цветом " + getColour() + ", Координатами " + x + ":" + y);
     }
 }

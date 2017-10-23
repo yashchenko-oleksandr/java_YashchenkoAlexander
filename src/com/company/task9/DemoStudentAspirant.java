@@ -5,4 +5,8 @@ package com.company.task9;
  * Создать переменную типа Student, которая ссылается на объект типа Aspirant. (Задание с урока)
  */
 public class DemoStudentAspirant {
+    public static void main(String[] args) {
+        Student student = new Aspirant("Петя", "Пупкин", "35", "Работа1");
+        System.out.println(student);
+    }
 }

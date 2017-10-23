@@ -13,14 +13,14 @@ public class Phone {
     private int weight;
     static int count = 0;
 
-    Phone() {
+    public Phone() {
         number = "+380932376456";
         model = "Lenova K5";
         weight = 432;
         count++;
     }
 
-    Phone(String number, String model, int weight) {
+    public Phone(String number, String model, int weight) {
         this();
         this.number = number;
         this.model = model;
@@ -51,19 +51,19 @@ public class Phone {
         this.weight = weight;
     }
 
-    void receiveCall(String name) {
+    public void receiveCall(String name) {
         System.out.println("Звонит " + name);
     }
 
-    String getPhoneNumber() {
+    public String getPhoneNumber() {
         return number;
     }
 
-    void receiveCall(String name, String numver) {
+    public void receiveCall(String name, String numver) {
         System.out.println("Звонит " + name + "\nНомер телефона - " + numver);
     }
 
-    void sendMessage(String... array) {
+    public void sendMessage(String... array) {
         for (String a : array)
             System.out.println("Телефон: " + a);
     }

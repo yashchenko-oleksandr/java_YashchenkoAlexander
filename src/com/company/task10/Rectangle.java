@@ -50,6 +50,28 @@ public class Rectangle extends Shape {
         this.y2 = y2;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Rectangle rectangle = (Rectangle) o;
+
+        if (x1 != rectangle.x1) return false;
+        if (x2 != rectangle.x2) return false;
+        if (y1 != rectangle.y1) return false;
+        return y2 == rectangle.y2;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = x1;
+        result = 31 * result + x2;
+        result = 31 * result + y1;
+        result = 31 * result + y2;
+        return result;
+    }
+
     public void draw() {
         System.out.println("Рисую прямоугольник с цветом " + getColour() + ", с координатами: нижний левый " + x1 + ":" + y1 + " верхний правый " + x2 + ":" + y2);
     }

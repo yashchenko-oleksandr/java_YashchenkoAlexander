@@ -51,6 +51,16 @@ public class Rectangle extends Shape {
     }
 
     @Override
+    public String toString() {
+        return "Rectangle{" +
+                "x1=" + x1 +
+                ", x2=" + x2 +
+                ", y1=" + y1 +
+                ", y2=" + y2 +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

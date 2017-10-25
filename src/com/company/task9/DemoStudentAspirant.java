@@ -9,7 +9,6 @@ public class DemoStudentAspirant {
         Student student = new Aspirant("Петя", "Пупкин", "35", "Работа1");
         System.out.println(student);
         Student[] student1 = new Student[2];
-
         student1[0] = new Student("Петя1", "Пупкин9", "353");
         student1[1] = new Aspirant("Петя4", "Пупкин4", "354", "Работа12");
         for (Student st : student1) {

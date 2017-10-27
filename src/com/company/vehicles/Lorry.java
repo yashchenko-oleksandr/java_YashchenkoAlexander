@@ -25,7 +25,7 @@ public class Lorry extends Car {
 
     @Override
     public String toString() {
-        return "SportCar{" +
+        return "Lorry{" +
                 "carryung=" + carryung +
                 '}';
     }

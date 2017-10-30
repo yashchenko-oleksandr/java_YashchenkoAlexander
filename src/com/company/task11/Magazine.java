@@ -7,7 +7,7 @@ public class Magazine implements Printable {
     private String nameMagazine;
 
     public Magazine() {
-        nameMagazine= "Журнал мурзилка";
+        nameMagazine = "Журнал мурзилка";
     }
 
     public Magazine(String nameMagazine) {
@@ -34,8 +34,12 @@ public class Magazine implements Printable {
         System.out.println("Вывожу на печать журнал");
     }
 
-    @Override
-    public void printMagazines(Printable[] printable) {
-        System.out.println(nameMagazine);
+
+    public static void printMagazines(Printable[] printable) {
+        for (Printable pr : printable) {
+            if (pr instanceof Magazine) {
+                System.out.println(((Magazine) pr).getNameMagazine());
+            }
+        }
     }
 }

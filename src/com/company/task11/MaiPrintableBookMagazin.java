@@ -5,13 +5,16 @@ package com.company.task11;
  */
 public class MaiPrintableBookMagazin {
     public static void main(String[] args) {
-        Printable[] printables = new Printable[2];
+        Printable[] printables = new Printable[3];
 
-        printables[0] = new Book();
-        printables[1] = new Magazine();
-
-        for (Printable pr:printables){
+        printables[0] = new Book("Преступление и наказание");
+        printables[1] = new Magazine("Men");
+        printables[2] = new Book("Оно");
+        for (Printable pr : printables) {
             pr.print();
         }
+        Book.printBooks(printables);
+        Magazine.printMagazines(printables);
+
     }
 }

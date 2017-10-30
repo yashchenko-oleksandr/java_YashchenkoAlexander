@@ -5,5 +5,4 @@ package com.company.task11;
  */
 public interface Printable {
     void print();
-    void printMagazines(Printable[] printable);
 }

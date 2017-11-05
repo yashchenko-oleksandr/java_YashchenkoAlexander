@@ -1,4 +1,4 @@
-package com.company.task12;
+package com.company.task12.classes_task1;
 
 public enum Season {
     WINTER(-20) {

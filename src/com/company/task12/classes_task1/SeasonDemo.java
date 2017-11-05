@@ -1,4 +1,6 @@
-package com.company.task12;
+package com.company.task12.classes_task1;
+
+import com.company.task12.classes_task1.Season;
 
 public class SeasonDemo {
 

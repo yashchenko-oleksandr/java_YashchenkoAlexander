@@ -1,8 +1,8 @@
-package com.company.task10;
+package com.company.task10.classes_task3;
 
 public class Tulips extends Flower {
-    static int count;
-    public double valueTulips;
+    public static int count;
+    private double valueTulips;
 
     public Tulips() {
         valueTulips = 21;
@@ -21,6 +21,22 @@ public class Tulips extends Flower {
 
     public void setValueTulips(double valueTulips) {
         this.valueTulips = valueTulips;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Tulips tulips = (Tulips) o;
+
+        return Double.compare(tulips.valueTulips, valueTulips) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        long temp = Double.doubleToLongBits(valueTulips);
+        return (int) (temp ^ (temp >>> 32));
     }
 
     @Override

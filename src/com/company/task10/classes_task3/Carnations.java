@@ -1,8 +1,8 @@
-package com.company.task10;
+package com.company.task10.classes_task3;
 
 public class Carnations extends Flower {
-    static int count;
-    public double valueCarnations;
+    public static int count;
+    private double valueCarnations;
 
     public Carnations() {
         valueCarnations = 5;
@@ -21,6 +21,22 @@ public class Carnations extends Flower {
 
     public void setValueCarnations(int valueCarnations) {
         this.valueCarnations = valueCarnations;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Carnations that = (Carnations) o;
+
+        return Double.compare(that.valueCarnations, valueCarnations) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        long temp = Double.doubleToLongBits(valueCarnations);
+        return (int) (temp ^ (temp >>> 32));
     }
 
     @Override

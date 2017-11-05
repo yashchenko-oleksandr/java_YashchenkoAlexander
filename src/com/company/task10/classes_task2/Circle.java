@@ -1,4 +1,4 @@
-package com.company.task10;
+package com.company.task10.classes_task2;
 
 public class Circle extends Shape {
     private int x, y;

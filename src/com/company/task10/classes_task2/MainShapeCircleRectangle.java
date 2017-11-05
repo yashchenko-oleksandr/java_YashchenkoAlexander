@@ -1,6 +1,4 @@
-package com.company.task10;
-
-import sun.security.provider.SHA;
+package com.company.task10.classes_task2;
 
 /*
 *Создайте суперкласс Shape и его наследники Circle, Rectangle. Класс Shape содержит абстрактный метод draw() и переменную хранящую цвет.

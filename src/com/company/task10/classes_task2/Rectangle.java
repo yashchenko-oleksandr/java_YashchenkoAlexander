@@ -1,4 +1,4 @@
-package com.company.task10;
+package com.company.task10.classes_task2;
 
 public class Rectangle extends Shape {
     private int x1, x2, y1, y2;

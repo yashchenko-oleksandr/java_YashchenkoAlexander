@@ -1,4 +1,4 @@
-package com.company.task10;
+package com.company.task10.classes_task2;
 
 abstract public class Shape {
     private String colour;

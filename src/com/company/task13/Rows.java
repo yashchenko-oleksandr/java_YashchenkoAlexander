@@ -14,9 +14,9 @@ public class Rows {
         System.out.println("Окончние строки сиволами '!!!' - " + str.endsWith("!!!"));
         System.out.println("Начинается ли стока подстрокой 'I like' - " + str.startsWith("I like"));
         System.out.println("Позиция сроки 'Java' - " + str.indexOf("Java"));
-        System.out.println("Заменить все символы а на о. Строка до замены: " + str +" После - "+ str.replace('a', 'o'));
+        System.out.println("Заменить все символы а на о. Строка до замены: " + str + " После - " + str.replace('a', 'o'));
         System.out.println("Преобразование строки к верхнему регистру - " + str.toUpperCase());
         System.out.println("Преобразование строки к нижнему регистру - " + str.toLowerCase());
-        System.out.println("Вырезать строку Java - "+str.substring(0,6)+str.substring(11,14));
+        System.out.println("Вырезать строку Java - " + str.substring(0, 6) + str.substring(11, 14));
     }
 }

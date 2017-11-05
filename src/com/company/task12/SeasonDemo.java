@@ -1,8 +1,5 @@
 package com.company.task12;
 
-/**
- * Created by Ukrainian IT_SCHOOL on 30.10.2017.
- */
 public class SeasonDemo {
 
     public static void main(String[] args) {

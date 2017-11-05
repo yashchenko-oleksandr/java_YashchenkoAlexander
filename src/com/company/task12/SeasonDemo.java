@@ -38,7 +38,7 @@ public class SeasonDemo {
         System.out.println("");
         System.out.println("Средне зачение для каждой поры года");
         for (Season seasonTemperature : Season.values()) {
-            System.out.println(seasonTemperature + " " + seasonTemperature.getTemperature()+" "+seasonTemperature.getDescriptiom());
+            System.out.println(seasonTemperature + " " + seasonTemperature.getTemperature() + " " + seasonTemperature.getDescriptiom());
         }
 
     }

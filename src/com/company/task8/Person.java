@@ -40,7 +40,7 @@ public class Person {
 
     @Override
     public String toString() {
-        String s = String.format("Полное имя %s, возрaст %d",fullName,age);
+        String s = String.format("Полное имя %s, возрaст %d", fullName, age);
         return s;
     }
 

@@ -1,6 +1,10 @@
 package com.company.task16;
 
-public class ThirdGen<T, V, K> {
+import com.company.task10.classes_task4.Animal;
+
+import java.io.Serializable;
+
+public class ThirdGen<T extends Comparable, V extends Animal & Serializable, K extends Number> {
     T obj1;
     V obj2;
     K obj3;
@@ -42,12 +46,12 @@ public class ThirdGen<T, V, K> {
     }
 
     public static void main(String[] args) {
-        ThirdGen<Integer, String, Integer> tgObj = new ThirdGen<>(88, "Generics", 83);
+        ThirdGen<String, Animal, Integer> tgObj = new ThirdGen<>("dsf", new Animal(), 83);
         tgObj.showNameClasses();
 
-        int v = tgObj.getObj1();
+        String v = tgObj.getObj1();
         System.out.println("value: " + v);
-        String str = tgObj.getObj2();
+        Animal str = tgObj.getObj2();
         System.out.println("value: " + str);
         int v1 = tgObj.getObj3();
         System.out.println("value: " + v1);

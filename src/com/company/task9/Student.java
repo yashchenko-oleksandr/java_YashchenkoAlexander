@@ -3,7 +3,7 @@ package com.company.task9;
 /**
  * Created by Ukrainian IT_SCHOOL on 20.10.2017.
  */
-public class Student {
+public class Student implements Comparable<Student>{
     private String firstName, lastName, group;
 
     public Student() {
@@ -53,5 +53,31 @@ public class Student {
     public void getScholarship(){
         System.out.println(this);
         System.out.println("Студент имеет стипендию 300");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        if (firstName != null ? !firstName.equals(student.firstName) : student.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(student.lastName) : student.lastName != null) return false;
+        return group != null ? group.equals(student.group) : student.group == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = firstName != null ? firstName.hashCode() : 0;
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (group != null ? group.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        String anotherFirstName = o.firstName;
+        return this.firstName.compareTo(anotherFirstName);
     }
 }

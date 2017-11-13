@@ -34,4 +34,25 @@ public class Aspirant extends Student {
         System.out.println(this);
         System.out.println("Аспирант имеет стипендию 400");
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Aspirant aspirant = (Aspirant) o;
+
+        return scienceWork != null ? scienceWork.equals(aspirant.scienceWork) : aspirant.scienceWork == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return scienceWork != null ? scienceWork.hashCode() : 0;
+    }
+
+
+    public int compareTo(Aspirant o) {
+        String anotherFirstName = o.getFirstName();
+        return this.getFirstName().compareTo(anotherFirstName);
+    }
 }

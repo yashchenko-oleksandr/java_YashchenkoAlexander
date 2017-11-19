@@ -1,9 +1,15 @@
 package com.company.task15;
 
-/**
- * Created by Ukrainian IT_SCHOOL on 10.11.2017.
- */
 public class User {
+    public static void main(String[] args) {
+        User user = new User("Sancho", "1234");
+        user.createQuery();
+        User.Guery guery1 = user.new Guery();
+        User.Guery guery2 = new User().new Guery();
+        guery1.printToLog();
+        guery2.printToLog();
+    }
+
     private String login, password;
 
     public User() {
@@ -67,14 +73,5 @@ public class User {
     public void createQuery() {
         Guery guery = new Guery();
         guery.printToLog();
-    }
-
-    public static void main(String[] args) {
-        User user = new User("Sancho", "1234");
-        user.createQuery();
-        User.Guery guery1 = user.new Guery();
-        User.Guery guery2 = new User().new Guery();
-        guery1.printToLog();
-        guery2.printToLog();
     }
 }

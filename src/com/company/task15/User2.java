@@ -1,6 +1,11 @@
 package com.company.task15;
 
 public class User2 {
+    public static void main(String[] args) {
+        User2 user2 = new User2("Саня", "qwrty234");
+        user2.createQuery();
+    }
+
     private String login, password;
 
     public User2() {
@@ -63,11 +68,6 @@ public class User2 {
         }
         Guery2 guery = new Guery2();
         guery.printToLog();
-    }
-
-    public static void main(String[] args) {
-        User2 user2 = new User2("Саня", "qwrty234");
-        user2.createQuery();
     }
 }
 

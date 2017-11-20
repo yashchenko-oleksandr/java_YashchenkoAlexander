@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 public class WorkingWithStrings {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int i;
+        int i = 0;
         System.out.println("Выберите задание");
         System.out.println("Задание 2 - Дано два числа, например 3 и 56, необходимо составить следующие строки: \n" +
                 "3 + 56 = 59 \n" +
@@ -15,7 +15,11 @@ public class WorkingWithStrings {
                 "3 * 56 = 168. ");
         System.out.println("Задание 3 - Напишите метод, заменяющий в строке все вхождения «object oriented programming»(не учитываем регистр символов) на «OOP».");
         System.out.println("Задание 4 - Даны строки разной длины (длина - четное число), необходимо вернуть ее два средних знака: \"string\" → \"ri\", \"code\" → \"od\", \"Practice\"→\"ct\".");
-        i = scanner.nextInt();
+        if (scanner.hasNextInt()) {
+            i = scanner.nextInt();
+        } else {
+            System.out.println("Вы ввели не вещественное число!");
+        }
         switch (i) {
             case 2:
                 numericString();
@@ -40,22 +44,22 @@ public class WorkingWithStrings {
         s = sb.append("3").append("+").append("56").append("=").append(a + b).toString();
         sb.deleteCharAt(4);
         System.out.println(s);
-        replese(sb);
+        replace(sb);
         sb.delete(0, sb.capacity());
 
         s = sb.append("3").append("-").append("56").append("=").append(a - b).toString();
         sb.deleteCharAt(4);
         System.out.println(s);
-        replese(sb);
+        replace(sb);
         sb.delete(0, sb.capacity());
 
         s = sb.append("3").append("*").append("56").append("=").append(a * b).toString();
         sb.deleteCharAt(4);
         System.out.println(s);
-        replese(sb);
+        replace(sb);
     }
 
-    public static void replese(StringBuilder sb) {
+    public static void replace(StringBuilder sb) {
         sb.replace(4, 4, "равно");
         System.out.println(sb);
     }

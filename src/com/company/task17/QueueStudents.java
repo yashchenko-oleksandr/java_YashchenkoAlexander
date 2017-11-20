@@ -15,10 +15,17 @@ public class QueueStudents {
         deque.offer(new Student("aaa", "aaaa", "1"));
         deque.offer(new Student("bbb", "bbbb", "2"));
         deque.offer(new Student("ccc", "cccc", "3"));
+
+        while (deque.size() > 0) {
+            System.out.println(deque.poll());
+        }
+        System.out.println(deque);
+        /*
+        Вариант 2
         deque.poll();
         deque.poll();
         for (Student s : deque) {
             System.out.println(s);
-        }
+        }*/
     }
 }

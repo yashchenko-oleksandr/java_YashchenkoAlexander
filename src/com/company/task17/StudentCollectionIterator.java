@@ -12,21 +12,25 @@ import java.util.List;
 public class StudentCollectionIterator {
     public static void main(String[] args) {
         List<Student> array = new ArrayList<>();
-        List<Student> array1 = new ArrayList<>();
 
         array.add(new Student("aaa", "aaaa", "21"));
         array.add(new Student("bbb", "bbbb", "21"));
         array.add(new Student("ccc", "cccc", "31"));
 
+        System.out.println(getStudent(array));
+
+    }
+
+    public static List<Student> getStudent(List<Student> array) {
+        List<Student> array1 = new ArrayList<>();
         Iterator<Student> iterator = array.iterator();
         while (iterator.hasNext()) {
             Student element = iterator.next();
-            if(element.getGroup().equals("21")){
-                array1.add(element);
+            if (element.getGroup().equals("21")) {
                 iterator.remove();
+                array1.add(element);
             }
         }
-        System.out.println(array);
-
+        return array1;
     }
 }

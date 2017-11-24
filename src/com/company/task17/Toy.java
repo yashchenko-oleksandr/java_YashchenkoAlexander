@@ -16,11 +16,9 @@ public class Toy {
         public Toy(String name) {
             this();
             this.name = name;
-            System.out.println("In constructor with one parameter");
         }
 
         public Toy() {
-            System.out.println("In default constructor");
         }
 
         public String getName() {
@@ -38,4 +36,12 @@ public class Toy {
         public void setСost(int сost) {
             this.сost = сost;
         }
+
+    @Override
+    public String toString() {
+        return "Toy{" +
+                "name='" + name + '\'' +
+                ", сost=" + сost +
+                '}';
+    }
 }

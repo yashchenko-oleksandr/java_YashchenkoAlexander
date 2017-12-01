@@ -7,41 +7,17 @@ import java.io.*;
  */
 public class CopyBetweenFiles {
     public static void main(String[] args) {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/com/company/task19/buffWriter.txt"));
-             BufferedReader br = new BufferedReader(new FileReader("src/com/company/task19/buffWriter.txt"))) {
-            //запись в файл
-            String text = "Привет мир!";
-            bufferedWriter.write(text);
-            bufferedWriter.newLine();
-            bufferedWriter.write(text);
-            bufferedWriter.flush();
-
+        try (BufferedReader br = new BufferedReader(new FileReader("src/com/company/task19/copied_file.txt"));
+             BufferedWriter bufferedWriter = new BufferedWriter((new FileWriter("src/com/company/task19/buffWriter.txt")))) {
             //чтение построчно
             String s;
             while ((s = br.readLine()) != null) {
                 System.out.println(s);
+                bufferedWriter.write(s);
+                bufferedWriter.newLine();
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-
-        char[] in = new char[50];
-        int size = 0;
-        File file = new File("fileWrite.txt");
-        try (FileWriter fw = new FileWriter(file);
-             FileReader fr = new FileReader(file);) {
-
-            fw.write("Learn\nJava!\n");
-            fw.flush();
-
-            size = fr.read(in); // read the whole file!
-            System.out.print(size + " "); // how many bytes read
-            for (char c : in) {
-                System.out.print(c);
-            }
-        } catch (IOException e) {
-            System.out.print(e.getMessage());
-        }
-
     }
 }

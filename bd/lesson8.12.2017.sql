@@ -21,7 +21,9 @@ CREATE TABLE IF NOT EXISTS `phones` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `user_id` int(5) DEFAULT NULL,
   `phone_number` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `phones_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table catalog.phones: ~4 rows (приблизно)
@@ -38,14 +40,16 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `phone_id` int(5) DEFAULT NULL,
   `room_number` int(4) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `phone_id` (`phone_id`),
+  CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phones` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table catalog.rooms: ~4 rows (приблизно)
 /*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
 INSERT INTO `rooms` (`id`, `phone_id`, `room_number`) VALUES
 	(1, 5, 327),
-	(2, 2, 326),
+	(2, 6, 326),
 	(3, 4, 326),
 	(4, 3, 327);
 /*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
@@ -54,16 +58,17 @@ INSERT INTO `rooms` (`id`, `phone_id`, `room_number`) VALUES
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
+  `surname` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table catalog.users: ~4 rows (приблизно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `username`) VALUES
-	(2, 'Александр'),
-	(3, 'Богдан'),
-	(4, 'Лиза'),
-	(5, 'Антон');
+INSERT INTO `users` (`id`, `username`, `surname`) VALUES
+	(2, 'Александр', 'Ященко'),
+	(3, 'Богдан', 'Марценюк'),
+	(4, 'Лиза', 'Щербинина'),
+	(5, 'Антон', 'Ященко');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

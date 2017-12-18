@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Ukrainian IT_SCHOOL on 01.12.2017.
  */
-public class Halter implements Serializable{
+public class Halter implements Serializable {
     private String type;
 
     public Halter() {

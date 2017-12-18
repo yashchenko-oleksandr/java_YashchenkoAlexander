@@ -2,7 +2,7 @@ package com.company.task20;
 
 import java.io.Serializable;
 
-public class Horse extends Animal implements Serializable{
+public class Horse extends Animal implements Serializable {
     private Halter halter;
 
     public Horse() {

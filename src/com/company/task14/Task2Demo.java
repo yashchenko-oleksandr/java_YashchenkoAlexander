@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Task2Demo {
     public static void main(String[] args) {
-        String string = "My name is Liza. I'm 19 years old. Конец";
+        String string = "My name is Sanya. I'm 21 years old. Конец";
         System.out.println("Result: " + method(string));
     }
 

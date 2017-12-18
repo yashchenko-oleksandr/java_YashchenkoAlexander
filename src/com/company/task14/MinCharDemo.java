@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class MinCharDemo {
     public static void main(String[] args) {
-        System.out.println("Min: " + min("My name is Sanja.I'm 21 years old.IIIII have apple."));
+        System.out.println("Min: " + min("My name is Sanya.I'm 21 years old.IIIII have apple."));
     }
 
     public static String min(String str) {

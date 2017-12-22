@@ -12,64 +12,89 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Dumping database structure for catalog
-CREATE DATABASE IF NOT EXISTS `catalog` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `catalog`;
+-- Dumping database structure for shop
+CREATE DATABASE IF NOT EXISTS `shop` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `shop`;
 
--- Dumping structure for таблиця catalog.phones
-CREATE TABLE IF NOT EXISTS `phones` (
+-- Dumping structure for таблиця shop.basket
+CREATE TABLE IF NOT EXISTS `basket` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `user_id` int(5) DEFAULT NULL,
-  `phone_number` varchar(10) DEFAULT NULL,
+  `user_id` int(5) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `phones_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  CONSTRAINT `basket_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalog.phones: ~4 rows (приблизно)
-/*!40000 ALTER TABLE `phones` DISABLE KEYS */;
-INSERT INTO `phones` (`id`, `user_id`, `phone_number`) VALUES
-	(3, 2, '8093457682'),
-	(4, 3, '093457555'),
-	(5, 5, '8093457333'),
-	(6, 4, '093457444');
-/*!40000 ALTER TABLE `phones` ENABLE KEYS */;
+-- Dumping data for table shop.basket: ~0 rows (приблизно)
+/*!40000 ALTER TABLE `basket` DISABLE KEYS */;
+/*!40000 ALTER TABLE `basket` ENABLE KEYS */;
 
--- Dumping structure for таблиця catalog.rooms
-CREATE TABLE IF NOT EXISTS `rooms` (
+-- Dumping structure for таблиця shop.catalog
+CREATE TABLE IF NOT EXISTS `catalog` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
-  `phone_id` int(5) DEFAULT NULL,
-  `room_number` int(4) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `phone_id` (`phone_id`),
-  CONSTRAINT `rooms_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phones` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-
--- Dumping data for table catalog.rooms: ~4 rows (приблизно)
-/*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
-INSERT INTO `rooms` (`id`, `phone_id`, `room_number`) VALUES
-	(1, 5, 327),
-	(2, 6, 326),
-	(3, 4, 326),
-	(4, 3, 327);
-/*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
-
--- Dumping structure for таблиця catalog.users
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(5) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) DEFAULT NULL,
-  `surname` varchar(50) DEFAULT NULL,
+  `name` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table catalog.users: ~4 rows (приблизно)
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `username`, `surname`) VALUES
-	(2, 'Александр', 'Ященко'),
-	(3, 'Богдан', 'Марценюк'),
-	(4, 'Лиза', 'Щербинина'),
-	(5, 'Антон', 'Ященко');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+-- Dumping data for table shop.catalog: ~0 rows (приблизно)
+/*!40000 ALTER TABLE `catalog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `catalog` ENABLE KEYS */;
+
+-- Dumping structure for таблиця shop.product
+CREATE TABLE IF NOT EXISTS `product` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL,
+  `value` int(5) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table shop.product: ~0 rows (приблизно)
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+
+-- Dumping structure for таблиця shop.pr_ct
+CREATE TABLE IF NOT EXISTS `pr_ct` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `cat_id` int(5) NOT NULL,
+  `prod_id` int(5) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cat_id` (`cat_id`),
+  KEY `prod_id` (`prod_id`),
+  CONSTRAINT `pr_ct_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `catalog` (`id`),
+  CONSTRAINT `pr_ct_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `product` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table shop.pr_ct: ~0 rows (приблизно)
+/*!40000 ALTER TABLE `pr_ct` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pr_ct` ENABLE KEYS */;
+
+-- Dumping structure for таблиця shop.user
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `login` varchar(25) NOT NULL,
+  `password` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table shop.user: ~0 rows (приблизно)
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+-- Dumping structure for таблиця shop.us_bask
+CREATE TABLE IF NOT EXISTS `us_bask` (
+  `id` int(5) NOT NULL AUTO_INCREMENT,
+  `basket_id` int(5) NOT NULL,
+  `prod_id` int(5) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `basket_id` (`basket_id`),
+  KEY `prod_id` (`prod_id`),
+  CONSTRAINT `us_bask_ibfk_1` FOREIGN KEY (`basket_id`) REFERENCES `basket` (`id`),
+  CONSTRAINT `us_bask_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `pr_ct` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table shop.us_bask: ~0 rows (приблизно)
+/*!40000 ALTER TABLE `us_bask` DISABLE KEYS */;
+/*!40000 ALTER TABLE `us_bask` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
